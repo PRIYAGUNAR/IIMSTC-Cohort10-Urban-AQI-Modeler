@@ -6,7 +6,7 @@ Predicting PM2.5 concentration levels for SDG 11 using traffic and wind data. In
 
 ## [span_4](start_span)👥 Team Roles & Accountability[span_4](end_span)
 * **[span_5](start_span)President:** Priyaguna R - Project Manager & GitHub Admin[span_5](end_span).
-* **[span_6](start_span)Vice President:** [Name] - Operations & Time Log Manager[span_6](end_span).
+* **[span_6](start_span)Vice President:** Tamirahsharieff - Operations & Time Log Manager[span_6](end_span).
 * **[span_7](start_span)Secretary:** Kashish - Documentation & Meeting Lead[span_7](end_span).
 * **[span_8](start_span)Vice Secretary:** Lasya T P - QA & SDG Impact Analyst[span_8](end_span).
 * **[span_9](start_span)[span_10](start_span)Data Engineers (4):** Data cleaning, feature engineering (Hour of Day)[span_9](end_span)[span_10](end_span).
