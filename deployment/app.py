@@ -12,7 +12,8 @@ st.markdown("Predict PM2.5 concentration levels based on air quality parameters"
 
 @st.cache_resource
 def load_model():
-    model_path = os.path.join(os.path.dirname(__file__), "..", "models", "pm25_xgb_model.pkl")
+    # model file moved into the deployment directory
+    model_path = os.path.join(os.path.dirname(__file__), "pm25_xgb_model.pkl")
     return joblib.load(model_path)
 
 try:
