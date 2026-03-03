@@ -6,7 +6,7 @@ import os
 # -----------------------------
 # Load Model
 # -----------------------------
-MODEL_PATH = os.path.join("models", "pm25_xgb_model.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "pm25_xgb_model.pkl")
 
 if not os.path.exists(MODEL_PATH):
     st.error("Model file not found. Please check the models folder.")
