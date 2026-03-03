@@ -21,5 +21,6 @@ Predicting PM2.5 concentration levels for SDG 11 using traffic and wind data. In
 ## [span_15](start_span)[span_16](start_span)📅 Operational Rules[span_15](end_span)[span_16](end_span)
 * **[span_17](start_span)Daily Commitment:** 4–5 hours per member logged in the weekly report[span_17](end_span).
 * **[span_18](start_span)Daily Sync:** 1-hour mandatory discussion (Discord/Google Meet)[span_18](end_span).
-* **[span_19](start_span)Submission:** Final report due by Monday EOD[span_19](end_span).
+* **[span_19](start_span)Submission:** Final report due by Tuesday EOD[span_19](end_span).
 *
+
