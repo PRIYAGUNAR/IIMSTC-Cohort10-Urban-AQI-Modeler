@@ -12,8 +12,15 @@ st.markdown("Predict PM2.5 concentration levels based on air quality parameters"
 
 @st.cache_resource
 def load_model():
-    # model file moved into the deployment directory
-    model_path = os.path.join(os.path.dirname(__file__), "pm25_xgb_model.pkl")
+    # Load the XGBoost model from the repo `models/` folder (tracked in git)
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    model_path = os.path.join(repo_root, "models", "pm25_xgb_model.pkl")
+
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(
+            f"Model file not found at: {model_path}. "
+            "Make sure `models/pm25_xgb_model.pkl` exists in the deployed branch."
+        )
     return joblib.load(model_path)
 
 try:
@@ -45,8 +52,11 @@ with col2:
 
 features = np.array([[pm10, so2, no2, co, o3, temp, pres, dewp, rain, wspm, month, hour]])
 
-# compute prediction
-prediction = model.predict(features)[0]
+# compute prediction with basic post-processing
+raw_prediction = float(model.predict(features)[0])
+
+# PM2.5 concentration cannot be negative in reality, so clamp at 0
+prediction = max(0.0, raw_prediction)
 
 st.markdown("---")
 
