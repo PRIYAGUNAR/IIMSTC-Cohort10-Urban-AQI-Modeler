@@ -18,6 +18,29 @@ Predicting PM2.5 concentration levels for SDG 11 using traffic and wind data. In
 * **Features:** Traffic Volume, Wind Speed, Hour of Day (Extracted from Timestamps).
 * **Goal:** Capture peak traffic patterns to improve regression accuracy.
 
+## 🔄 Model Training & Deployment
+The `deployment/train_fixed_model.py` script encapsulates the entire model training workflow:
+
+1. **Data source**: `../cleaned_air_quality_data (1) (1).csv`
+2. **Features**: `['PM10','SO2','NO2','CO','O3','TEMP','PRES','DEWP','RAIN','WSPM','month','hour']`
+3. **Run training**:
+   ```bash
+   cd deployment
+   python train_fixed_model.py
+   ```
+   This produces `pm25_xgb_model.pkl` and `feature_names.pkl` in the `deployment/` folder.
+4. **Push to repo**: commit the new pickles and training script to the `deployment` branch (or whichever branch holds the Streamlit app). Your fork is already configured as `fork`; simply:
+   ```bash
+   git add deployment/pm25_xgb_model.pkl deployment/feature_names.pkl deployment/train_fixed_model.py
+   git commit -m "retrain model vX" 
+   git push origin deployment        # update upstream
+   git push fork deployment          # update your fork
+   ```
+
+The app (both root `app.py` and `deployment/app.py`) load the XGB pickle file relative to their location, so keeping the model in `deployment/` ensures the cloud deployment works correctly.
+
+> 💡 Tip: when you change the list of features or model hyperparameters, update the script accordingly and rerun the training step.
+
 ## [span_15](start_span)[span_16](start_span)📅 Operational Rules[span_15](end_span)[span_16](end_span)
 * **[span_17](start_span)Daily Commitment:** 4–5 hours per member logged in the weekly report[span_17](end_span).
 * **[span_18](start_span)Daily Sync:** 1-hour mandatory discussion (Discord/Google Meet)[span_18](end_span).
