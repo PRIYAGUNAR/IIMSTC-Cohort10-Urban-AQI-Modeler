@@ -45,6 +45,7 @@ with col2:
 
 features = np.array([[pm10, so2, no2, co, o3, temp, pres, dewp, rain, wspm, month, hour]])
 
+# compute prediction
 prediction = model.predict(features)[0]
 
 st.markdown("---")
