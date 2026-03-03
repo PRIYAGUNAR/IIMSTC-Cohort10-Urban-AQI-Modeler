@@ -12,15 +12,8 @@ st.markdown("Predict PM2.5 concentration levels based on air quality parameters"
 
 @st.cache_resource
 def load_model():
-    # Load the XGBoost model from the repo `models/` folder (tracked in git)
-    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    model_path = os.path.join(repo_root, "models", "pm25_xgb_model.pkl")
+    model_path = os.path.join(os.path.dirname(__file__), "pm25_xgb_model.pkl")
 
-    if not os.path.exists(model_path):
-        raise FileNotFoundError(
-            f"Model file not found at: {model_path}. "
-            "Make sure `models/pm25_xgb_model.pkl` exists in the deployed branch."
-        )
     return joblib.load(model_path)
 
 try:
